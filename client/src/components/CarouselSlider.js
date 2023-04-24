@@ -11,14 +11,14 @@ export default function CarouselSlider({ universities }) {
 
   const images = [...universities];
   images.sort(() => 0.5 - Math.random());
-  const uniImages = images.slice(0, 4);
+  const uniImages = images.slice(0, 3);
 
   const handleSelect = (selectedIndex, e) => {
     setIndex(selectedIndex);
   };
   console.log(universities)
   const sliderimgs = uniImages.map((university) => (
-      <Carousel.Item id={university.id}>
+      <Carousel.Item key={university.id}>
         <img
           className="d-block w-100"
           src={university.image_url}
@@ -26,7 +26,7 @@ export default function CarouselSlider({ universities }) {
         />
         <Carousel.Caption>
           <h3>{university.name}</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>{university.location}</p>
         </Carousel.Caption>
       </Carousel.Item>
 ))
